@@ -26,9 +26,9 @@ fi
 echo ${versions[*]}
 
 if array_contains versions $1; then
+  sudo a2dismod php7.1
   sudo a2dismod php7.0
   sudo a2dismod php5.6
-  sudo a2dismod php5.5
   sudo a2enmod php$1
   sudo service apache2 restart
   sudo ln -sfn /usr/bin/php$1 /etc/alternatives/php
